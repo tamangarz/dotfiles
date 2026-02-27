@@ -1,0 +1,158 @@
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://yalter.github.io/niri/Configuration:-Window-Rules
+
+// Work around WezTerm's initial configure bug
+// by setting an empty default-column-width.
+
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r#"^kitty$"#
+    open-floating true
+    default-column-width { fixed 800; }
+    default-window-height { fixed 600; }
+    background-effect {
+        blur true
+    }
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Nautilus (app-id is "org.gnome.Nautilus")
+    match app-id=r#"^org\.gnome\.Nautilus$"#
+    open-floating true
+    opacity 0.9
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id=r#"^com\.rtosta\.zapzap$"#
+    open-floating true
+    default-column-width { fixed 800; }
+    default-window-height { fixed 1000; }
+}
+
+window-rule {
+    match app-id=r#"^com\.ayugram\.desktop$"#
+    open-floating true
+    default-column-width { fixed 800; }
+    default-window-height { fixed 1000; }
+}
+
+window-rule {
+    match app-id=r#"^hyprland\-share\-picker$"#
+    open-floating true
+    default-column-width { fixed 600; }
+    default-window-height { fixed 400; }
+}
+
+window-rule {
+    match app-id=r#"^HytaleClient$"#
+    default-column-width { fixed 5120; }
+    //open-floating false
+    draw-border-with-background false
+    //open-maximized-to-edges true
+    //open-fullscreen true
+}
+
+window-rule {
+    match app-id=r#"^org\.kde\.konsole$"#
+    open-floating true
+    default-column-width { fixed 1000; }
+    default-window-height { fixed 1400; }
+}
+
+window-rule {
+    match app-id=r#"^io\.missioncenter\.MissionCenter$"#
+    open-floating true
+    default-column-width { fixed 900; }
+    default-window-height { fixed 600; }
+}
+
+window-rule {
+    match app-id="spotify"
+    opacity 0.8
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="vesktop"
+    opacity 0.8
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="zen"
+    background-effect {
+        blur true
+    }
+}
+
+
+window-rule {
+    match app-id="codium"
+    opacity 1.0
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="ZapZap"
+    open-floating true
+    default-column-width { fixed 1000; }
+    default-window-height { fixed 1200; }
+}
+
+window-rule {
+    match app-id="com.ayugram.desktop"
+    open-floating true
+    default-column-width { fixed 800; }
+    default-window-height { fixed 1000; }
+}
+
+window-rule {
+    match app-id="gamescope"
+    
+    // Zwingt die Niri-Spalte auf exakt 5120 Pixel Breite
+    default-column-width { fixed 5120; }
+    
+    // Wirft den Fensterrahmen (Border) weg, damit es wie echtes Vollbild aussieht
+    draw-border-with-background false
+}
+
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+/-window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+    
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+// Example: enable rounded corners for all windows.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    geometry-corner-radius 3
+    clip-to-geometry true
+}

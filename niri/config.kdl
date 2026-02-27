@@ -1,0 +1,19 @@
+// Hauptconfig
+
+include "input.kdl"
+
+include "monitors.kdl"
+
+include "layout.kdl"
+
+include "keybinds.kdl"
+
+include "animations.kdl"
+
+include "window-rules.kdl"
+
+include "autostart.kdl"
+
+include "colors.kdl"
+
+prefer-no-csd
