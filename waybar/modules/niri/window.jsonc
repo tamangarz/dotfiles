@@ -1,0 +1,13 @@
+{
+  "niri/window": {
+    "format": "{}",
+    "rewrite": {
+      ".*sun@.*": "Terminal",
+      ".*kitty.*": "Terminal",
+      "^~$": "Terminal",
+      "^zsh$": "Terminal",
+      "^$": "Desktop",
+    },
+    "tooltip": false,
+  },
+}

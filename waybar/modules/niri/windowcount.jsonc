@@ -1,0 +1,5 @@
+{
+  "niri/window#col": {
+    "format": "{col}/{max_col}",
+  },
+}
